@@ -1,0 +1,12 @@
+tensorflow
+opencv-python
+numpy
+ultralytics
+fast-alpr
+fast-plate-ocr
+onnxruntime
+fastapi
+uvicorn
+streamlit
+requests
+matplotlib
