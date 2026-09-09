@@ -1,5 +1,5 @@
 from core.vehicle import detect_vehicle_type
-from core.plate import get_plate_number
+from core.arabic_plate import get_plate_number
 from core.colour import get_dominant_color
 from core.brand import predict_brand
 

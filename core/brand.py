@@ -9,10 +9,7 @@ def predict_brand(image):
     result = results[0]
 
     if len(result.boxes) == 0:
-        return {
-            "brand": "No car detected",
-            "confidence": 0
-        }
+        return "No car detected" , 0
 
     best_box = max(
         result.boxes,

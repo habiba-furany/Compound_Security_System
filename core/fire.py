@@ -2,7 +2,7 @@ from ultralytics import YOLO
 
 fire_model = YOLO(r"models\fire_smoke.pt")
 
-def check_fire_smoke(frame, conf_threshold=0.5):
+def check_fire_smoke(frame, conf_threshold=0.25):
     results = fire_model(frame, verbose=False)
 
     detection_result = {
