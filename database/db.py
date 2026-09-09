@@ -24,7 +24,6 @@ def create_tables():
     conn.commit()
     conn.close()
 
-
 def register_entry(plate, vehicle_type, brand, color):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()

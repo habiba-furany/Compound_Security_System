@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 
 from core.parking import analyze_parking_occupancy
+from core.fire import check_fire_smoke
 from core.gate_logic import process_entry, process_exit
 from database.db import create_tables
 
@@ -32,4 +33,12 @@ async def gate_exit(file: UploadFile):
     contents = await file.read()
     frame = cv2.imdecode(np.frombuffer(contents, np.uint8), cv2.IMREAD_COLOR)
     return process_exit(frame)
- 
+
+### fire detection
+@app.post("/safety/fire-smoke")
+async def fire_smoke_status(file: UploadFile):
+  contents = await file.read()
+  frame = cv2.imdecode(np.frombuffer(contents, np.uint8), cv2.IMREAD_COLOR)
+
+  result = check_fire_smoke(frame)
+  return result
