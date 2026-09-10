@@ -1,7 +1,7 @@
 
 from ultralytics import YOLO
 
-brand_model = YOLO(r"models\brand.pt") 
+brand_model = YOLO(r"models/brand.pt") 
 
 
 def predict_brand(image):

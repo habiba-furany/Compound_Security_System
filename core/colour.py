@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-color_model = YOLO(r"models\color2.pt")   
+color_model = YOLO(r"models/color2.pt")   
 
 
 def get_dominant_color(frame, conf_threshold=0.5):

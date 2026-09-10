@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 import cv2
 
-MODEL_PATH = r"models\vehicle_classifier.keras"   
+MODEL_PATH = r"models/vehicle_classifier.keras"   
 model = tf.keras.models.load_model(MODEL_PATH)
 
 CLASS_NAMES = ["Auto rickshaw", "Cars", "Trocyle"]

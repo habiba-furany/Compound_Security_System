@@ -2,8 +2,8 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 
-plate_model = YOLO(r"models\plate.pt")
-ocr_model = YOLO(r"models\best.pt")
+plate_model = YOLO(r"models/plate.pt")
+ocr_model = YOLO(r"models/best.pt")
 
 def map_to_arabic(numbers, letters):
     number_map = {

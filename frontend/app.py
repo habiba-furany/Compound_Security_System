@@ -10,11 +10,10 @@ import streamlit as st
 import sys
 import tempfile
 import os
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from core.gate_logic import process_entry, process_exit
 from core.parking import analyze_parking_occupancy
-
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent

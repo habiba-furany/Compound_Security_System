@@ -1,0 +1,16 @@
+
+services:
+  app-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: compound_cv_system
+    ports:
+      - "8000:8000"   # بورت الباكيند FastAPI
+      - "8501:8501"   # بورت الفرونت Streamlit
+    volumes:
+      - .:/app
+    command: >
+      sh -c "uvicorn backend.main:app --host 0.0.0.0 --port 8000 & 
+            streamlit run frontend/app.py --server.port=8501 --server.address=0.0.0.0"
+    restart: always
