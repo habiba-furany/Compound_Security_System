@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 
-parking_model = YOLO(r"models/parking (2).pt")
+parking_model = YOLO(r"models/parking.pt")
 
 
 def analyze_parking_occupancy(frame, return_annotated=False):

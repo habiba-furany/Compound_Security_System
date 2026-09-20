@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-fire_model = YOLO(r"models\fire_smoke.pt")
+fire_model = YOLO(r"models/fire_smoke.pt")
 
 def check_fire_smoke(frame, conf_threshold=0.45):
     results = fire_model(frame, verbose=False)
