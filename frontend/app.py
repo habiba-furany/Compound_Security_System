@@ -96,8 +96,7 @@ def process_single_video_for_fire(video_bytes, frame_placeholder, alerts_placeho
 
         annotated_frame = draw_fire_boxes(frame, last_detections)
         annotated_rgb = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
-        frame_placeholder.image(annotated_rgb, use_container_width=True)
-
+        frame_placeholder.image(annotated_rgb, width='stretch') 
         time.sleep(frame_delay)
         frame_index += 1
 
@@ -171,9 +170,7 @@ def process_two_videos_for_fire(
 
             annotated1 = draw_fire_boxes(frame1, last_detections1)
             annotated1 = cv2.cvtColor(annotated1, cv2.COLOR_BGR2RGB)
-            frame_placeholder1.image(annotated1, use_container_width=True)
-
-        # ---- Area 2 ----
+            frame_placeholder1.image(annotated1, width='stretch')        # ---- Area 2 ----
         if ret2:
             if frame_index % sample_rate == 0:
                 _, encoded2 = cv2.imencode(".jpg", frame2)
@@ -198,8 +195,7 @@ def process_two_videos_for_fire(
 
             annotated2 = draw_fire_boxes(frame2, last_detections2)
             annotated2 = cv2.cvtColor(annotated2, cv2.COLOR_BGR2RGB)
-            frame_placeholder2.image(annotated2, use_container_width=True)
-
+            frame_placeholder2.image(annotated2, width='stretch')
         total_fires = fire1 + fire2
         total_smokes = smoke1 + smoke2
         st.session_state.fire_alert_count = total_fires + total_smokes
@@ -604,10 +600,10 @@ def dashboard_page():
             st.info("No vehicle records found in the database yet.")
     else:
         st.dataframe(
-            df_vehicles,
-            use_container_width=True,
-            hide_index=True
-        )
+        df_vehicles,
+        width='stretch',
+        hide_index=True
+    )
 
 
 # ============================================================
@@ -676,10 +672,10 @@ def gate_page():
         with st.container(border=True):
             st.subheader("Camera Input")
             st.image(
-                file_bytes,
-                caption="Original Camera Frame",
-                use_container_width=True
-            )
+            file_bytes,
+            caption="Original Camera Frame",
+            width='stretch'
+        )
 
         with st.spinner("Analyzing vehicle..."):
             try:
@@ -1021,7 +1017,7 @@ def monitoring_page():
 
                         annotated = draw_fire_boxes(frame, detections)
                         annotated = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
-                        frame_placeholder1.image(annotated, use_container_width=True)
+                        frame_placeholder1.image(annotated, width='stretch')
                     except Exception as e:
                         frame_placeholder1.error(f"Failed to connect to backend: {e}")
 
@@ -1050,7 +1046,7 @@ def monitoring_page():
 
                         annotated = draw_fire_boxes(frame, detections)
                         annotated = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
-                        frame_placeholder2.image(annotated, use_container_width=True)
+                        frame_placeholder2.image(annotated, width='stretch')
                     except Exception as e:
                         frame_placeholder2.error(f"Failed to connect to backend: {e}")
 
@@ -1137,11 +1133,11 @@ def monitoring_page():
                     st.subheader("📷 Parking Camera")
 
                     st.image(
-                        annotated_frame,
-                        caption="Parking Detection",
-                        channels="BGR",
-                        use_container_width=True
-                    )
+                    annotated_frame,
+                    caption="Parking Detection",
+                    channels="BGR",
+                    width='stretch'
+                )
 
             with right:
 
